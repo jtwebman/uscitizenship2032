@@ -2,11 +2,14 @@
 import "../styles/global.css";
 
 interface Props {
-  title: string;
-  description?: string;
+	title: string;
+	description?: string;
 }
 
-const { title, description = "A plan to update how U.S. birthright citizenship works, based on what 30 other countries already do." } = Astro.props;
+const {
+	title,
+	description = "A plan to update how U.S. birthright citizenship works, based on what 30 other countries already do.",
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
