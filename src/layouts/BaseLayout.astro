@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title, description = "A plan to update how U.S. birthright citizenship works, based on what 30 other countries already do." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
@@ -15,14 +16,32 @@ const { title, description = "A plan to update how U.S. birthright citizenship w
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="description" content={description} />
+    <meta name="author" content="JT Turner" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="USCitizenship2032" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <title>{title}</title>
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "USCitizenship2032",
+      "url": "https://uscitizenship2032.com",
+      "description": description,
+      "author": {
+        "@type": "Person",
+        "name": "JT Turner"
+      }
+    })} />
   </head>
   <body class="min-h-screen flex flex-col">
     <nav class="section-dark">

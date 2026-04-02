@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uscitizenship2032.com/sitemap-index.xml
